@@ -367,35 +367,44 @@ header.base {
     /* 1. Ajusta o espaçamento do topo para o conteúdo não sumir sob o menu */
     main {
         padding-top: 130px;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    /* 2. Corrige o Menu do Topo: diminui a fonte e o espaço para caber na tela */
+    /* 2. Corrige o Menu do Topo para caber na tela do celular */
     header.base {
         padding: 12px 10px;
     }
 
     .menu-secoes {
-        gap: 15px; /* Diminui o espaço entre os links no celular */
+        gap: 15px; 
         justify-content: center;
         width: 100%;
-        flex-wrap: wrap; /* Se a tela for muito pequena, os links quebram linha elegantemente */
+        flex-wrap: wrap; 
     }
 
     .menu-secoes a {
-        font-size: 0.9rem; /* Diminui levemente o tamanho do texto do menu */
+        font-size: 0.9rem; 
         letter-spacing: 0.5px;
     }
 
-    /* 3. Traz as Redes Sociais para a tela de forma visível e centralizada */
+    /* 3. CORREÇÃO: Mantém as redes sociais fixas no canto inferior esquerdo no celular */
     .redes {
-        position: static; /* Remove a posição fixa do canto esquerdo */
-        flex-direction: row; /* Coloca os ícones um ao lado do outro */
-        justify-content: center; /* Centraliza na tela */
-        gap: 25px;
-        margin: 40px 0 20px 0; /* Cria um espaçamento saudável antes do formulário */
-        width: 100%;
+        position: fixed; /* Garante que continuem fixas e persistentes */
+        bottom: 20px;    /* Um pouco mais perto da borda no celular */
+        left: 15px;     /* Ajustado para não cortar na tela do celular */
+        flex-direction: column; /* Mantém uma embaixo da outra, como no computador */
+        gap: 12px;      /* Diminui o espaço entre elas para economizar tela */
+        z-index: 1000;
+        margin: 0;      /* Remove margens extras */
+        width: auto;
+    }
+
+    /* Diminui levemente o tamanho dos ícones para celular */
+    .icon_redes {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
     }
 
     /* 4. Força as seções a ficarem em uma única coluna bem distribuída */
@@ -416,7 +425,7 @@ header.base {
     }
 
     .bloco-sobre p {
-        text-align: center; /* Melhora a leitura em telas pequenas */
+        text-align: justify; /* Mantém o texto elegante e alinhado */
     }
 
 }
