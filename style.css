@@ -362,85 +362,90 @@ header.base {
     filter: brightness(1.1);
 }
 
-
 /* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
     
-    /* 1. Ajusta o topo dinamicamente e adiciona margem inferior para a barra de redes */
+    /* 1. Ajusta o topo para o menu de linha única */
     main {
-        padding-top: 140px; 
+        padding-top: 80px; /* Como o menu agora é uma linha fina, o topo pode ser menor */
         padding-left: 20px; 
         padding-right: 20px;
-        padding-bottom: 80px; /* EVITA QUE O CONTEÚDO FIQUE ATRÁS DA BARRA FIXA */
+        padding-bottom: 40px;
         box-sizing: border-box;
     }
 
-    /* 2. Menu do Topo Dinâmico */
+    /* 2. Menu do Topo: Uma seção ao lado da outra SEM QUEBRAR LINHA */
     header.base {
-        padding: 12px 20px;
-        position: fixed; /* Garante que o topo fique fixo se necessário */
+        padding: 15px 10px;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         box-sizing: border-box;
         z-index: 1000;
+        background-color: rgba(11, 9, 20, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     .menu-secoes {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas perfeitas */
-        gap: 12px; 
-        width: 100%;
-        max-width: 100%; /* Permite usar o espaço disponível */
-        margin: 0 auto;
+        display: flex !important; /* Força a virar Flexbox, matando o Grid antigo */
+        flex-direction: row !important; /* Alinha um ao lado do outro */
+        justify-content: space-evenly !important; /* Distribui igualmente na largura da tela */
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important; /* Remove qualquer limitação de largura antiga */
+        gap: 5px !important; 
+        margin: 0 auto !important;
+        flex-wrap: nowrap !important; /* PROÍBE terminantemente o menu de quebrar em 2 linhas */
     }
 
     .menu-secoes a {
-        font-size: 0.9rem; /* Levemente maior para facilitar o clique com o dedo */
+        font-size: 0.75rem !important; /* Tamanho perfeito para caber os 4 links em telas de 320px */
         letter-spacing: 0.5px;
-        display: block;
-        text-align: center;
-        padding: 8px; /* Área de clique maior */
+        padding: 6px 4px !important;
+        display: inline-block !important;
+        white-space: nowrap !important; /* Garante que o texto (ex: SOBRE MIM) não quebre internamente */
     }
 
-    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Barra inferior estilo App */
+    /* 3. Redes Sociais: Fixas e isoladas no CANTO INFERIOR ESQUERDO */
     .redes {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0; /* Garante que estique de ponta a ponta */
-        top: auto !important; /* Força o cancelamento do desktop */
-        transform: none !important; /* Cancela possíveis translates do desktop */
+        position: fixed !important;
+        bottom: 25px !important; /* Altura do chão da tela */
+        left: 20px !important;   /* Afastado da borda esquerda */
+        right: auto !important;
+        top: auto !important;   
+        transform: none !important; /* Mata qualquer centralização do desktop */
         
-        display: flex;
-        flex-direction: row; 
-        justify-content: center; 
-        align-items: center;
-        gap: 30px; /* Um pouco menor para não quebrar em telas de 320px */
+        display: flex !important;
+        flex-direction: column !important; /* Empilha os ícones um em cima do outro na lateral */
+        gap: 12px !important; 
         
-        width: 100% !important;
-        height: 60px; /* Altura fixa para controle do layout */
-        background-color: rgba(11, 9, 20, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* Suporte para Safari (iPhone) */
-        border-top: 1px solid rgba(157, 78, 221, 0.3);
-        padding: 0;
+        width: auto !important; 
+        background: transparent !important; 
+        border: none !important; 
+        box-shadow: none !important;
+        padding: 0 !important;
         margin: 0 !important;
-        z-index: 9999;
-        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+        z-index: 9999 !important;
     }
 
-    /* Reajusta os ícones para a barra inferior */
+    /* Estilização dos ícones flutuantes na esquerda */
     .icon_redes {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: rgba(157, 78, 221, 0.2) !important; /* Fundo roxo sutil */
+        border: 1px solid rgba(157, 78, 221, 0.4) !important;
+        border-radius: 50% !important; /* Deixa redondinho */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
     }
 
-    /* 4. Alinhamento das seções de conteúdo */
+    /* 4. Alinhamento do conteúdo */
     .container-sobre-grid,
     .container-formacao-afastado,
     .container-grid-projetos {
@@ -462,6 +467,6 @@ header.base {
 
     .bloco-sobre p {
         text-align: justify;
-        line-height: 1.6; /* Melhora a leitura no celular */
+        line-height: 1.6;
     }
 }
