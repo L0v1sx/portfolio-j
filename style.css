@@ -365,60 +365,93 @@ header.base {
 
 /* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
-    /* 1. Ajusta o espaçamento do topo e remove o recuo lateral que causava problemas */
+    
+    /* 1. Ajusta o topo e garante que nada transborde para os lados */
     main {
-        padding-top: 150px; /* Aumentado para acomodar o menu em duas linhas */
+        padding-top: 100px; /* Reduzido porque o menu agora ocupa menos espaço vertical */
         padding-left: 20px; 
         padding-right: 20px;
+        padding-bottom: 40px;
+        box-sizing: border-box;
     }
 
-    /* 2. Menu do Topo Organizado em duas linhas simétricas */
+    /* 2. Menu do Topo: Uma seção ao lado da outra (Rolagem suave se a tela for muito pequena) */
     header.base {
-        padding: 12px 0;
+        padding: 15px 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1000;
+        background-color: rgba(11, 9, 20, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     .menu-secoes {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Divide o menu em 2 colunas perfeitas */
-        gap: 12px 20px; /* Espaçamento entre as linhas e colunas */
-        justify-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centraliza os links na tela */
+        align-items: center;
+        gap: 15px; /* Espaço entre os links */
         width: 100%;
-        max-width: 280px; /* Garante que fique centralizado e compacto */
-        margin: 0 auto;
+        overflow-x: auto; /* Se a tela for MUITO pequena (ex: 320px), o menu não quebra, ele permite deslizar para o lado */
+        white-space: nowrap; /* Impede que o texto dos links quebre linha */
+        padding: 5px;
+        
+        /* Esconde a barra de rolagem horizontal para ficar estético */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .menu-secoes::-webkit-scrollbar {
+        display: none; /* Chrome, Safari e Opera */
     }
 
     .menu-secoes a {
         font-size: 0.85rem; 
         letter-spacing: 0.5px;
-        display: block;
-        text-align: center;
+        padding: 6px 10px;
+        display: inline-block;
     }
 
-    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Transforma em uma barra inferior fixa (Estilo App) */
+    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Flutuando no canto inferior esquerdo */
     .redes {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        top: auto; /* Cancela a regra do desktop */
-        flex-direction: row; /* Ícones um ao lado do outro */
-        justify-content: center; 
-        align-items: center;
-        gap: 40px;
-        width: 100%;
-        background-color: rgba(11, 9, 20, 0.95);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(157, 78, 221, 0.3);
-        padding: 12px 0;
+        bottom: 20px; /* Distância do fundo da tela */
+        left: 20px;   /* Distância da borda esquerda */
+        right: auto !important; /* Cancela largura total */
+        top: auto !important;   /* Cancela regras do desktop */
+        transform: none !important; /* Cancela rotações ou translações do desktop */
+        
+        display: flex;
+        flex-direction: column; /* Ícones empilhados um em cima do outro */
+        gap: 12px; /* Espaçamento entre os ícones */
+        
+        width: auto !important; /* Ocupa apenas o tamanho dos ícones */
+        background: transparent; /* Remove fundos de barra */
+        border: none; /* Remove bordas de barra */
+        box-shadow: none;
+        padding: 0;
+        margin: 0 !important;
         z-index: 9999;
-        margin: 0;
-        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
     }
 
-    /* Reajusta os ícones para a barra inferior */
+    /* Ajuste fino dos ícones individuais na lateral */
     .icon_redes {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
         font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(157, 78, 221, 0.2); /* Um fundo sutil roxo para dar destaque */
+        border: 1px solid rgba(157, 78, 221, 0.4);
+        border-radius: 50%; /* Deixa os ícones redondinhos e modernos */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        transition: background 0.3s ease;
     }
 
     /* 4. Alinhamento das seções de conteúdo */
@@ -430,6 +463,7 @@ header.base {
         width: 100%;
         gap: 35px;
         text-align: center;
+        box-sizing: border-box;
     }
 
     .bloco-sobre h2 {
@@ -442,5 +476,6 @@ header.base {
 
     .bloco-sobre p {
         text-align: justify;
+        line-height: 1.6;
     }
 }
