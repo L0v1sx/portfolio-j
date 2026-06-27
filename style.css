@@ -361,24 +361,62 @@ header.base {
     filter: brightness(1.1);
 }
 
-/* Ajustes de Responsividade para Celulares */
+
+/* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
+    /* 1. Ajusta o espaçamento do topo para o conteúdo não sumir sob o menu */
+    main {
+        padding-top: 130px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* 2. Corrige o Menu do Topo: diminui a fonte e o espaço para caber na tela */
+    header.base {
+        padding: 12px 10px;
+    }
+
+    .menu-secoes {
+        gap: 15px; /* Diminui o espaço entre os links no celular */
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap; /* Se a tela for muito pequena, os links quebram linha elegantemente */
+    }
+
+    .menu-secoes a {
+        font-size: 0.9rem; /* Diminui levemente o tamanho do texto do menu */
+        letter-spacing: 0.5px;
+    }
+
+    /* 3. Traz as Redes Sociais para a tela de forma visível e centralizada */
+    .redes {
+        position: static; /* Remove a posição fixa do canto esquerdo */
+        flex-direction: row; /* Coloca os ícones um ao lado do outro */
+        justify-content: center; /* Centraliza na tela */
+        gap: 25px;
+        margin: 40px 0 20px 0; /* Cria um espaçamento saudável antes do formulário */
+        width: 100%;
+    }
+
+    /* 4. Força as seções a ficarem em uma única coluna bem distribuída */
     .container-sobre-grid,
     .container-formacao-afastado,
     .container-grid-projetos {
         grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .container-sobre-grid {
+        gap: 40px;
         text-align: center;
     }
-    .redes {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 40px;
+
+    .bloco-sobre h2 {
+        border-left: none;
+        border-bottom: 3px solid #9d4edd;
+        padding-left: 0;
+        padding-bottom: 5px;
+        display: inline-block;
     }
-    main {
-        padding-top: 100px;
+
+    .bloco-sobre p {
+        text-align: center; /* Melhora a leitura em telas pequenas */
     }
+
 }
