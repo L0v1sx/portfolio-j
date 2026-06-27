@@ -1,0 +1,384 @@
+/* Reset e Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0b0914; /* Fundo escuro deep */
+    color: #e2e1e9;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0914;
+}
+::-webkit-scrollbar-thumb {
+    background: #6a0dad;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9d4edd;
+}
+
+/* Main Container spacing */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 80px 20px; /* Margem superior para compensar o menu fixo */
+}
+
+/* 1. Menu Fixo no Topo com Efeito Neon Roxo */
+header.base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(11, 9, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #9d4edd;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5), inset 0 0 10px rgba(157, 78, 221, 0.2);
+    display: flex;
+    justify-content: center;
+    padding: 18px 0;
+}
+
+.menu-secoes {
+    display: flex;
+    gap: 40px;
+}
+
+.menu-secoes a {
+    color: #e2e1e9;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-shadow: 0 0 5px rgba(157, 78, 221, 0.3);
+}
+
+.menu-secoes a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #9d4edd, 0 0 20px #9d4edd;
+}
+
+/* 2. Redes Sociais Fixas no Canto Inferior Esquerdo */
+.redes {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.icon_redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: #161224;
+    border: 1px solid #6a0dad;
+    border-radius: 50%;
+    color: #9d4edd;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(157, 78, 221, 0.2);
+}
+
+.icon_redes:hover {
+    color: #ffffff;
+    background-color: #9d4edd;
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #9d4edd;
+}
+
+/* 3. Título e Subtítulo ao lado de Sobre Mim */
+.container-sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 140px; /* Grande espaçamento para o scroll fluir */
+}
+
+.titulo-principal {
+    font-size: 3.5rem;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+.subtitulo-principal {
+    font-size: 1.5rem;
+    color: #9d4edd;
+    font-weight: 400;
+}
+
+.bloco-sobre h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-left: 4px solid #9d4edd;
+    padding-left: 12px;
+}
+
+.bloco-sobre p {
+    margin-bottom: 15px;
+    color: #b3b0c2;
+    text-align: justify;
+}
+
+/* 4. Formação e Cursos Extracurriculares (Cards Flutuantes) */
+.container-formacao-afastado {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 180px; /* Grande distância para a próxima seção de Projetos */
+}
+
+.card-flutuante {
+    background: linear-gradient(145deg, #130f22, #1a1530);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.card-flutuante:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(157, 78, 221, 0.25);
+    border-color: rgba(157, 78, 221, 0.5);
+}
+
+.bloco-formacao h2 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bloco-formacao h2 i {
+    color: #9d4edd;
+}
+
+.item-formacao {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.item-formacao:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-formacao h3 {
+    font-size: 1.15rem;
+    color: #e2e1e9;
+    margin-bottom: 5px;
+}
+
+.item-formacao p {
+    color: #8a85a0;
+    font-size: 0.95rem;
+}
+
+/* 5. Seção de Projetos (Um ao lado do outro, em cards clicáveis) */
+.card-projetos {
+    margin-bottom: 200px; /* Super afastado do formulário de contato */
+}
+
+.titulo-projeto {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.titulo-projeto::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #9d4edd;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #9d4edd;
+}
+
+.container-grid-projetos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.card-flutuante-projeto {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #130f22, #1a1530);
+    border: 1px solid rgba(157, 78, 221, 0.15);
+    border-radius: 12px;
+    padding: 35px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-flutuante-projeto:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(157, 78, 221, 0.3);
+    border-color: #9d4edd;
+}
+
+.card-flutuante-projeto h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.card-flutuante-projeto:hover h3 {
+    color: #9d4edd;
+}
+
+.sub-projeto {
+    display: block;
+    font-size: 0.9rem;
+    color: #9d4edd;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.card-flutuante-projeto p {
+    color: #b3b0c2;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.card-flutuante-projeto strong {
+    color: #ffffff;
+}
+
+.btn-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: #9d4edd;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* 6. Formulário de Contato Bonito e Espaçado */
+.area-contato {
+    max-width: 650px;
+    margin: 0 auto 100px auto;
+}
+
+.area-contato h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.area-contato label {
+    display: block;
+    color: #e2e1e9;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.area-contato input,
+.area-contato textarea {
+    width: 100%;
+    background-color: #0b0914;
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.area-contato input:focus,
+.area-contato textarea:focus {
+    outline: none;
+    border-color: #9d4edd;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+.area-contato button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(90deg, #6a0dad, #9d4edd);
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
+}
+
+.area-contato button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.6);
+    filter: brightness(1.1);
+}
+
+/* Ajustes de Responsividade para Celulares */
+@media (max-width: 900px) {
+    .container-sobre-grid,
+    .container-formacao-afastado,
+    .container-grid-projetos {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .container-sobre-grid {
+        text-align: center;
+    }
+    .redes {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    main {
+        padding-top: 100px;
+    }
+}

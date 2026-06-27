@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Joyce Moraes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+    <header class="base">
+        <nav class="menu-secoes">
+            <a href="#sobre-mim">Sobre Mim</a>
+            <a href="#formacao">Formação</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <div class="redes">
+        <a href="https://github.com/L0v1sx" target="_blank" class="icon_redes" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/m0r4es.j" target="_blank" class="icon_redes" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="mailto:programmer100010@gmail.com" target="_blank" class="icon_redes" title="E-mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    </div>
+
+    <main>
+        <section class="container-sobre-grid">
+            <hgroup>
+                <h1 class="titulo-principal">Joyce Moraes</h1>
+                <p class="subtitulo-principal">Back-End Developer</p>
+            </hgroup>
+
+            <div class="bloco-sobre">
+                <h2 id="sobre-mim">Sobre Mim</h2>
+                <p class="sobre">Bem-vindo(a) ao meu portfólio pessoal! Meu nome é Joyce Moraes e espero que você possa conhecer um pouco mais sobre mim e sobre meu trabalho.</p>
+                <p>Sou uma jovem de 20 anos apaixonada por computadores e tecnologia. Desde pequena, sempre gostei de explorar o mundo da informática. Meu interesse surgiu ao observar meu irmão mais velho montando, consertando computadores e jogando videogame. Com o passar do tempo, minha curiosidade pela tecnologia cresceu cada vez mais.</p>
+                <p>Aos 16 anos, comecei a estudar Segurança da Informação e descobri uma área pela qual me apaixonei. Desde então, venho me dedicando aos estudos e buscando ampliar meus conhecimentos. Atualmente, curso Análise e Desenvolvimento de Sistemas (ADS), onde continuo aprofundando minhas habilidades em tecnologia e desenvolvimento.</p>
+                <p>Este portfólio foi criado para apresentar um pouco da minha trajetória, dos meus conhecimentos e dos projetos que venho desenvolvendo ao longo da minha formação.</p>
+            </div>
+        </section>
+
+        <section class="container-formacao-afastado">
+            <div class="bloco-formacao card-flutuante">
+                <h2 id="formacao"><i class="fa-solid fa-graduation-cap"></i> Formação</h2>
+                <div class="item-formacao">
+                    <h3>Padre Romeu Mecca</h3>
+                    <p>Ensino Médio (2022-2024)</p>
+                </div>
+                <div class="item-formacao">
+                    <h3>UNINTER Universidade Internacional</h3>
+                    <p>Análise e Desenvolvimento de Sistemas (Em Andamento)</p>
+                </div>
+            </div>
+
+            <div class="bloco-formacao card-flutuante">
+                <h2><i class="fa-solid fa-certificate"></i> Cursos Extracurriculares</h2>
+                <div class="item-formacao">
+                    <h3>Introdução a Cybersegurança</h3>
+                    <p>Cisco Networking Academy (2025)</p>
+                </div>
+                <div class="item-formacao">
+                    <h3>Regulamentação da LGPD e Atuação da ANPD</h3>
+                    <p>SENAI (2025)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-projetos">
+            <h2 id="projetos" class="titulo-projeto">Projetos</h2>
+            <div class="container-grid-projetos">
+                
+                <a href="https://github.com/L0v1sx/sistema-corporativo" target="_blank" class="bloco-projeto card-flutuante-projeto">
+                    <h3>Sistema Empresarial - Banco De Dados (MySQL)</h3>
+                    <p>Este projeto consiste na modelagem de um banco de dados relacional para gestão empresarial, desenvolvido utilizando SQL no MySQL.</p>
+                    <p><strong>Objetivo:</strong> Gerenciar informações de uma empresa, incluindo funcionários, projetos, fornecedores, peças e departamentos, garantindo organização e integridade dos dados.</p>
+                    <span class="btn-github"><i class="fa-brands fa-github"></i> Ver Repositório</span>
+                </a>
+
+                <a href="https://github.com/L0v1sx/programa_conectando_idosos" target="_blank" class="bloco-projeto card-flutuante-projeto">
+                    <h3>Programa Conectando Idosos</h3>
+                    <span class="sub-projeto">Inclusão Digital e Segurança no uso de Smartphones e Serviços Online</span>
+                    <p>Uma proposta de extensão universitária projetada de forma autônoma. O objetivo principal é combater a exclusão digital e o isolamento social da população idosa, capacitando-os para o uso seguro de smartphones e ferramentas digitais cotidianas.</p>
+                    <p><strong>Foco:</strong> Mitigar a vulnerabilidade desse público diante do crescimento alarmante de golpes financeiros, fraudes e notícias falsas na internet.</p>
+                    <span class="btn-github"><i class="fa-brands fa-github"></i> Ver Repositório</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="area-contato">
+            <div class="container-contato card-flutuante">
+                <h2 id="contato">Contato</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="seuemail@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label> 
+                        <textarea id="mensagem" rows="5" placeholder="Digite uma mensagem..." required></textarea>
+                    </div>
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>  
+    
+       
+
+    <script src="interacao.js"></script>
+
+
+</body>
+</html>
