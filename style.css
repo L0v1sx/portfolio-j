@@ -364,68 +364,71 @@ header.base {
 
 /* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
-    /* 1. Ajusta o espaçamento do topo para o conteúdo não sumir sob o menu */
+    /* 1. Cria um corredor de 65px na esquerda para o texto nunca bater nas redes sociais fixas */
     main {
-        padding-top: 130px;
-        padding-left: 20px;
+        padding-top: 120px;
+        padding-left: 65px; 
         padding-right: 20px;
     }
 
-    /* 2. Corrige o Menu do Topo para caber na tela do celular */
+    /* 2. Corrige o Menu do Topo: reduz o texto e as margens para não quebrar linha */
     header.base {
-        padding: 12px 10px;
+        padding: 10px 5px;
     }
 
     .menu-secoes {
-        gap: 15px; 
+        gap: 10px; /* Espaço bem compacto para caber tudo numa linha só */
         justify-content: center;
         width: 100%;
-        flex-wrap: wrap; 
     }
 
     .menu-secoes a {
-        font-size: 0.9rem; 
-        letter-spacing: 0.5px;
+        font-size: 0.8rem; /* Reduz ligeiramente para evitar que o "CONTATO" caia */
+        letter-spacing: 0.2px;
     }
 
-    /* 3. CORREÇÃO: Mantém as redes sociais fixas no canto inferior esquerdo no celular */
+    /* 3. Redes sociais fixas perfeitamente alinhadas no corredor esquerdo */
     .redes {
-        position: fixed; /* Garante que continuem fixas e persistentes */
-        bottom: 20px;    /* Um pouco mais perto da borda no celular */
-        left: 15px;     /* Ajustado para não cortar na tela do celular */
-        flex-direction: column; /* Mantém uma embaixo da outra, como no computador */
-        gap: 12px;      /* Diminui o espaço entre elas para economizar tela */
+        position: fixed;
+        bottom: auto;
+        top: 140px;      /* Fixa as redes no topo da área útil, alinhadas com o início do texto */
+        left: 15px;      /* Posiciona bem no canto esquerdo */
+        flex-direction: column;
+        gap: 15px;
         z-index: 1000;
-        margin: 0;      /* Remove margens extras */
+        margin: 0;
         width: auto;
     }
 
-    /* Diminui levemente o tamanho dos ícones para celular */
+    /* Ícones ligeiramente menores e mais discretos no mobile */
     .icon_redes {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
     }
 
-    /* 4. Força as seções a ficarem em uma única coluna bem distribuída */
+    /* 4. Alinhamento do conteúdo */
     .container-sobre-grid,
     .container-formacao-afastado,
     .container-grid-projetos {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
         gap: 40px;
-        text-align: center;
+        text-align: left; /* Mantém alinhado à esquerda para harmonizar com o corredor */
     }
 
     .bloco-sobre h2 {
-        border-left: none;
-        border-bottom: 3px solid #9d4edd;
-        padding-left: 0;
-        padding-bottom: 5px;
-        display: inline-block;
+        border-left: 4px solid #9d4edd;
+        border-bottom: none;
+        padding-left: 12px;
+        padding-bottom: 0;
+        display: block;
     }
 
     .bloco-sobre p {
-        text-align: justify; /* Mantém o texto elegante e alinhado */
+        text-align: justify;
     }
-
 }
+
+
