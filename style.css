@@ -1,3 +1,4 @@
+
 /* Reset e Configurações Gerais */
 * {
     margin: 0;
@@ -364,71 +365,82 @@ header.base {
 
 /* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
-    /* 1. Cria um corredor de 65px na esquerda para o texto nunca bater nas redes sociais fixas */
+    /* 1. Ajusta o espaçamento do topo e remove o recuo lateral que causava problemas */
     main {
-        padding-top: 120px;
-        padding-left: 65px; 
+        padding-top: 150px; /* Aumentado para acomodar o menu em duas linhas */
+        padding-left: 20px; 
         padding-right: 20px;
     }
 
-    /* 2. Corrige o Menu do Topo: reduz o texto e as margens para não quebrar linha */
+    /* 2. Menu do Topo Organizado em duas linhas simétricas */
     header.base {
-        padding: 10px 5px;
+        padding: 12px 0;
     }
 
     .menu-secoes {
-        gap: 10px; /* Espaço bem compacto para caber tudo numa linha só */
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Divide o menu em 2 colunas perfeitas */
+        gap: 12px 20px; /* Espaçamento entre as linhas e colunas */
+        justify-items: center;
         width: 100%;
+        max-width: 280px; /* Garante que fique centralizado e compacto */
+        margin: 0 auto;
     }
 
     .menu-secoes a {
-        font-size: 0.8rem; /* Reduz ligeiramente para evitar que o "CONTATO" caia */
-        letter-spacing: 0.2px;
+        font-size: 0.85rem; 
+        letter-spacing: 0.5px;
+        display: block;
+        text-align: center;
     }
 
-    /* 3. Redes sociais fixas perfeitamente alinhadas no corredor esquerdo */
+    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Transforma em uma barra inferior fixa (Estilo App) */
     .redes {
         position: fixed;
-        bottom: auto;
-        top: 140px;      /* Fixa as redes no topo da área útil, alinhadas com o início do texto */
-        left: 15px;      /* Posiciona bem no canto esquerdo */
-        flex-direction: column;
-        gap: 15px;
-        z-index: 1000;
+        bottom: 0;
+        left: 0;
+        top: auto; /* Cancela a regra do desktop */
+        flex-direction: row; /* Ícones um ao lado do outro */
+        justify-content: center; 
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        background-color: rgba(11, 9, 20, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(157, 78, 221, 0.3);
+        padding: 12px 0;
+        z-index: 9999;
         margin: 0;
-        width: auto;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
     }
 
-    /* Ícones ligeiramente menores e mais discretos no mobile */
+    /* Reajusta os ícones para a barra inferior */
     .icon_redes {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 
-    /* 4. Alinhamento do conteúdo */
+    /* 4. Alinhamento das seções de conteúdo */
     .container-sobre-grid,
     .container-formacao-afastado,
     .container-grid-projetos {
         display: flex;
         flex-direction: column;
         width: 100%;
-        gap: 40px;
-        text-align: left; /* Mantém alinhado à esquerda para harmonizar com o corredor */
+        gap: 35px;
+        text-align: center;
     }
 
     .bloco-sobre h2 {
-        border-left: 4px solid #9d4edd;
-        border-bottom: none;
-        padding-left: 12px;
-        padding-bottom: 0;
-        display: block;
+        border-left: none;
+        border-bottom: 3px solid #9d4edd;
+        padding-left: 0;
+        padding-bottom: 5px;
+        display: inline-block;
     }
 
     .bloco-sobre p {
         text-align: justify;
     }
 }
-
-
