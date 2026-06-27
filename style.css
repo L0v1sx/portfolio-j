@@ -366,92 +366,78 @@ header.base {
 /* Ajustes de Responsividade para Celulares e Telas Pequenas */
 @media (max-width: 900px) {
     
-    /* 1. Ajusta o topo e garante que nada transborde para os lados */
+    /* 1. Ajusta o topo dinamicamente e adiciona margem inferior para a barra de redes */
     main {
-        padding-top: 100px; /* Reduzido porque o menu agora ocupa menos espaço vertical */
+        padding-top: 140px; 
         padding-left: 20px; 
         padding-right: 20px;
-        padding-bottom: 40px;
+        padding-bottom: 80px; /* EVITA QUE O CONTEÚDO FIQUE ATRÁS DA BARRA FIXA */
         box-sizing: border-box;
     }
 
-    /* 2. Menu do Topo: Uma seção ao lado da outra (Rolagem suave se a tela for muito pequena) */
+    /* 2. Menu do Topo Dinâmico */
     header.base {
-        padding: 15px 10px;
-        position: fixed;
+        padding: 12px 20px;
+        position: fixed; /* Garante que o topo fique fixo se necessário */
         top: 0;
         left: 0;
         width: 100%;
         box-sizing: border-box;
         z-index: 1000;
-        background-color: rgba(11, 9, 20, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
     }
 
     .menu-secoes {
-        display: flex;
-        flex-direction: row;
-        justify-content: center; /* Centraliza os links na tela */
-        align-items: center;
-        gap: 15px; /* Espaço entre os links */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas perfeitas */
+        gap: 12px; 
         width: 100%;
-        overflow-x: auto; /* Se a tela for MUITO pequena (ex: 320px), o menu não quebra, ele permite deslizar para o lado */
-        white-space: nowrap; /* Impede que o texto dos links quebre linha */
-        padding: 5px;
-        
-        /* Esconde a barra de rolagem horizontal para ficar estético */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-
-    .menu-secoes::-webkit-scrollbar {
-        display: none; /* Chrome, Safari e Opera */
+        max-width: 100%; /* Permite usar o espaço disponível */
+        margin: 0 auto;
     }
 
     .menu-secoes a {
-        font-size: 0.85rem; 
+        font-size: 0.9rem; /* Levemente maior para facilitar o clique com o dedo */
         letter-spacing: 0.5px;
-        padding: 6px 10px;
-        display: inline-block;
+        display: block;
+        text-align: center;
+        padding: 8px; /* Área de clique maior */
     }
 
-    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Flutuando no canto inferior esquerdo */
+    /* 3. SOLUÇÃO DAS REDES SOCIAIS: Barra inferior estilo App */
     .redes {
         position: fixed;
-        bottom: 20px; /* Distância do fundo da tela */
-        left: 20px;   /* Distância da borda esquerda */
-        right: auto !important; /* Cancela largura total */
-        top: auto !important;   /* Cancela regras do desktop */
-        transform: none !important; /* Cancela rotações ou translações do desktop */
+        bottom: 0;
+        left: 0;
+        right: 0; /* Garante que estique de ponta a ponta */
+        top: auto !important; /* Força o cancelamento do desktop */
+        transform: none !important; /* Cancela possíveis translates do desktop */
         
         display: flex;
-        flex-direction: column; /* Ícones empilhados um em cima do outro */
-        gap: 12px; /* Espaçamento entre os ícones */
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center;
+        gap: 30px; /* Um pouco menor para não quebrar em telas de 320px */
         
-        width: auto !important; /* Ocupa apenas o tamanho dos ícones */
-        background: transparent; /* Remove fundos de barra */
-        border: none; /* Remove bordas de barra */
-        box-shadow: none;
+        width: 100% !important;
+        height: 60px; /* Altura fixa para controle do layout */
+        background-color: rgba(11, 9, 20, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); /* Suporte para Safari (iPhone) */
+        border-top: 1px solid rgba(157, 78, 221, 0.3);
         padding: 0;
         margin: 0 !important;
         z-index: 9999;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
     }
 
-    /* Ajuste fino dos ícones individuais na lateral */
+    /* Reajusta os ícones para a barra inferior */
     .icon_redes {
-        width: 42px;
-        height: 42px;
-        font-size: 1.1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(157, 78, 221, 0.2); /* Um fundo sutil roxo para dar destaque */
-        border: 1px solid rgba(157, 78, 221, 0.4);
-        border-radius: 50%; /* Deixa os ícones redondinhos e modernos */
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        transition: background 0.3s ease;
     }
 
     /* 4. Alinhamento das seções de conteúdo */
@@ -476,6 +462,6 @@ header.base {
 
     .bloco-sobre p {
         text-align: justify;
-        line-height: 1.6;
+        line-height: 1.6; /* Melhora a leitura no celular */
     }
 }
